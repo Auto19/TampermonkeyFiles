@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Fligg Bot Portfolio Manager
 // @namespace    http://tampermonkey.net/
-// @version      0.1
+// @version      1.2
 // @description  A bot built to manage investing in stocks on https://www.marketwatch.com
-// @author       You
+// @author       https://github.com/Auto19/
 // @match        https://www.marketwatch.com/game/investment-club-marist-/portfolio
 // @grant        none
 // ==/UserScript==
@@ -38,6 +38,8 @@ if(StockVal > 0.5 && localStorage.getItem('s') == 'false') {
     //Close out of window
     setTimeout("document.querySelector('body > div.content-region.region--lightbox.j-ajaxContent.is-active > div > div.lightbox.lightbox--trade.lightbox--popup.j-success.is-active > div > div > a').click();", 25000);
     localStorage.setItem('s', 'true');
+    //refresh the page
+    setTimeout('document.location.reload();', 30000);
 //else if the day value of the first stock is below -1.0%, buy
 } else if (StockVal < -0.5 && localStorage.getItem('s') == 'true') {
     //Click trade now
@@ -50,6 +52,8 @@ if(StockVal > 0.5 && localStorage.getItem('s') == 'false') {
     //Close out of window
     setTimeout("document.querySelector('body > div.content-region.region--lightbox.j-ajaxContent.is-active > button').click();", 20000);
     localStorage.setItem('s', 'false');
+    //refresh page
+    setTimeout('document.location.reload();', 25000);
 } else {
     //refresh the page
     setTimeout('document.location.reload();', 50000);
