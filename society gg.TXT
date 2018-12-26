@@ -1,0 +1,40 @@
+// ==UserScript==
+// @name         Society.gg
+// @namespace    http://tampermonkey.net/
+// @version      0.1
+// @description  try to take over the world!
+// @author       You
+// @match        https://society.gg/
+// @grant        none
+// ==/UserScript==
+
+//roulette 
+/*
+function() {
+    document.getElementsByTagName("input")[0].innerHTML = 2;
+    document.getElementsByClassName("head n-3")[0].click();
+    document.getElementsByTagName("input")[0].innerHTML = 1;
+    document.getElementsByClassName("head n-2")[0].click();
+} */
+
+  //crash
+
+setInterval(function() {
+
+var list = document.getElementsByTagName("UL")[3];
+var str = list.getElementsByTagName("LI")[0].innerHTML;
+var a = parseFloat(str);
+console.log(a);
+
+var list1 = document.getElementsByTagName("UL")[3];
+var str1 = list1.getElementsByTagName("LI")[1].innerHTML;
+var a1 = parseFloat(str1);
+console.log(a1);
+
+if(a < 2.00 && a > 1.49) {
+    console.log("white");
+    if(a1 < 1.50) {
+         console.log("perfect");
+         document.getElementsByClassName("submit button orange_button")[1].click();
+    }
+}}, 2000);
